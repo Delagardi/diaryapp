@@ -1,0 +1,29 @@
+.sidebar {
+  background: #2B2F3E;
+  width: 270px;
+}
+
+.sidebar-header-group {
+  margin: 25px;
+}
+
+a.sidebar-header-link {
+  text-decoration: none;
+}
+
+.sidebar-header, .todos-header, .comments-header {
+  color: #fff;
+  font-size: 36px;
+  font-family: 'Open Sans light', sans-serif;
+  text-transform: uppercase;
+}
+
+.todos-header, .comments-header {
+  color: #565A69;
+}
+
+.sidebar-header__comment {
+  color: #808080;
+  font-size: 18px;
+  font-family: 'Open Sans', sans-serif; 
+}

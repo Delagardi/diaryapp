@@ -1,0 +1,15 @@
+.todo-add {
+  margin-top: 30px;
+}
+
+.form-control {
+  width: 290px;
+  margin-right: 10px;
+  font-family: 'Open Sans', sans-serif;
+}
+
+input[type=text]:focus {
+  outline: none;
+  border-color: #27CCC0;
+  box-shadow: none;
+}

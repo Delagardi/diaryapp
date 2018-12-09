@@ -1,0 +1,9 @@
+input[type="text"] {
+  margin-right: 10px;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: #27CCC0;
+  box-shadow: none;
+}

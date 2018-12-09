@@ -1,0 +1,29 @@
+.comments-add__avatar--img {
+  margin-top: 0;
+}
+
+.comments-add__text {
+  padding-left: 0;
+  width: 335px;
+}
+
+.comments-add__text > .form-control {
+  width: 335px;
+}
+
+.comments-add__text .form-control:focus {
+  outline: none;
+  border-color: #27CCC0;
+  box-shadow: none;
+}
+
+.comment-item__text-info {
+  font-size: 12px;
+  font-family: 'Open Sans light', sans-serif;
+  color: #666666;
+}
+
+textarea.form-control {
+  font-size: 12px;
+  font-family: 'Open Sans light', sans-serif;
+}

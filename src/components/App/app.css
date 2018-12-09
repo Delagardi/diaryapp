@@ -1,0 +1,36 @@
+.bg-main {
+  background: #2B2F3E;
+}
+
+.btn-success {
+  font-family: 'Open Sans Semibold', sans-serif;
+  color: #fff;
+  padding: 0px 32px;
+  font-size: 16px;
+  border: none;
+  background-color: #27CCC0;
+}
+
+.btn-success:hover {
+  background-color: #39e8db;
+  border: none;
+  box-shadow: none;
+}
+
+.btn-success:active {
+  background-color: #39e8db !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.btn-success:focus {
+  box-shadow: none;
+}
+
+.btn-outline-danger {
+  padding: 6px 25px;
+}
+
+.container {
+  max-width: 1280px;
+}
