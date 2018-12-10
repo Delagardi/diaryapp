@@ -15,7 +15,6 @@ class App extends Component {
         {id: 2, label: 'Second item is active'},
         {id: 3, label: 'Third item example'}
       ],
-
       commentsData: [
         {id: 1, idTodo: 2, userData: 'user1', text: 'A variation of the ordinary lorem ipsum text has been used in typesetting since the 1960s or earlier, when it was popularized by advertisements for Letraset transfer sheets. It was introduced to the Information Age in the mid-1980s'},
         {id: 2, idTodo: 2, userData: 'user2', text: 'A variation of the ordinary lorem ipsum text has been used in typesetting since the 1960s or earlier, when it was popularized by advertisements for Letraset transfer sheets. It was introduced to the Information Age in the mid-1980s'},
@@ -24,6 +23,26 @@ class App extends Component {
     }
     this.idTodoFrom = 555;
     this.idCommentFrom = 1555;
+  }
+
+  componentWillMount() {
+    localStorage.getItem('selectedItem') && this.setState({
+      selectedItem: JSON.parse(localStorage.getItem('selectedItem'))
+    })
+
+    localStorage.getItem('commentsData') && this.setState({
+      commentsData: JSON.parse(localStorage.getItem('commentsData'))
+    });
+
+    localStorage.getItem('todoData') && this.setState({
+      todoData: JSON.parse(localStorage.getItem('todoData'))
+    });
+  }
+
+  componentWillUpdate(nextProps, nextState) {
+    localStorage.setItem('selectedItem', null);
+    localStorage.setItem('todoData', JSON.stringify(nextState.todoData));
+    localStorage.setItem('commentsData', JSON.stringify(nextState.commentsData));
   }
 
   onItemSelected = (id) => {
