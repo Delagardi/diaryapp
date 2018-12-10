@@ -4,14 +4,14 @@ import TodoList from '../todoList';
 
 import './todos.css';
 
-const Todos = () => {
+const Todos = ({ todoData }) => {
   return (
     <div className="todos col-6">
       <div className="todos-card">
         <h2 className="todos-header">Items</h2>
         <div>
           <TodoAdd />
-          <TodoList />
+          <TodoList todoData={todoData}/>
         </div>
       </div>
     </div>

@@ -4,11 +4,12 @@ import Comments from '../comments';
 
 import './content.css';
 
-const Content = () => {
+const Content = ({ todoData }) => {
+  
   return (
     <div className="content">
       <div className="row">
-        <Todos />
+        <Todos todoData={todoData}/>
         <Comments />
       </div>
     </div>
