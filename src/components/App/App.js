@@ -65,13 +65,12 @@ class App extends Component {
       const after = todoData.slice(index+1);
       const newArray = [...before, ...after];
       
-      this.deleteComments(id);
-      
       ls.set('todoData', newArray);
       return {
         todoData: newArray
       }
     })
+    this.deleteComments(id);
   }
 
   addTodo = (text) => {
@@ -120,7 +119,6 @@ class App extends Component {
   commentsSumByTodo(idTodo) {
     const result = this.state.commentsData.filter( (item) => item.idTodo === idTodo ).length
 
-    console.log(result);
     return result;
   }
   
