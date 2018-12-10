@@ -4,7 +4,7 @@ import TodoList from '../todoList';
 
 import './todos.css';
 
-const Todos = ({ todoData, onDeleted, onAdd }) => {
+const Todos = ({ todoData, onDeleted, onAdd, selectedItem, onActiveSelected }) => {
   return (
     <div className="todos col-6">
       <div className="todos-card">
@@ -14,7 +14,10 @@ const Todos = ({ todoData, onDeleted, onAdd }) => {
             onAdd={ (text) => onAdd(text) }/>
           <TodoList 
             todoData={ todoData }
-            onDeleted={ (id) => onDeleted(id)}/>
+            onDeleted={ (id) => onDeleted(id) }
+            selectedItem={ selectedItem }
+            onActiveSelected={ (id) => onActiveSelected(id) }
+          />
         </div>
       </div>
     </div>

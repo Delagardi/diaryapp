@@ -4,35 +4,20 @@ import TodoListItem from '../todoListItem';
 import './todoList.css';
 
 class TodoList extends Component {
-  constructor() {
-    super();
-
-    this.state = {
-      selectedItem: null
-    }
-  }
-
-  onItemSelected = (id) => {
-    this.setState({
-      selectedItem: id
-    })
-  }
 
   render() {
-    const { selectedItem } = this.state;
-    const { todoData, onDeleted } = this.props;
+    const { todoData, onDeleted, selectedItem, onActiveSelected } = this.props;
 
     const elements = todoData.map( (item) => {
-      const { id, label, active } = item;
+      const { id, label } = item;
 
       return (
         <TodoListItem 
           key={id} 
           label={label} 
-          active={active} 
           id={id}
-          onActiveSelected={this.onItemSelected}
-          selectedItem={selectedItem}
+          onActiveSelected={ (id) => onActiveSelected(id)}
+          selectedItem={ selectedItem }
           onDeleted={ () => onDeleted(id) }/>
       );
     });

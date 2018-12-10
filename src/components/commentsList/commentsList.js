@@ -1,26 +1,39 @@
-import React from 'react';
+import React, { Component } from 'react';
 import CommentsListItem from '../commentsListItem';
 
 import './commentsList.css'
 
-const CommentsList = ({ commentsData }) => {
-  const elements = commentsData.map( (item) => {
-    const { id, userData, text } = item;
+class CommentsList extends Component {
+  render() {
+    const { commentsData, selectedItem } = this.props;
 
-    return (
-      <CommentsListItem 
-        key={id}
-        id={id}
-        userData={userData}
-        text={text}
-      />
-    );
-  });
-  return(
-    <div className="comments-list">
-      {elements}
-    </div>
-  )
+    const elements = commentsData.map( (item) => {
+      const { id, idTodo, userData, text } = item;
+      
+      console.log('selectedItem:');
+      console.log(selectedItem);
+      console.log('idTodo:');
+      console.log(idTodo);
+  
+      if ( selectedItem === idTodo ) {
+        return (
+          <CommentsListItem 
+            key={ id }
+            id={ id }
+            userData={ userData }
+            text={ text }
+          />
+        );
+      } else {
+        return null;
+      }
+    });
+    return(
+      <div className="comments-list">
+        { elements }
+      </div>
+    )
+  }
 }
 
 export default CommentsList;

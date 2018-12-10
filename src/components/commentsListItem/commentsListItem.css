@@ -27,10 +27,10 @@
   padding-bottom: 23px;
 }
 
-.user1 .comments-item__avatar--img {
+.user1.comments-item__avatar--img {
   background-color: #FF8A00;
 }
 
-.user2 .comments-item__avatar--img {
+.user2.comments-item__avatar--img {
   background-color: #47568C;
 }

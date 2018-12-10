@@ -3,18 +3,18 @@ import React from 'react';
 import './commentsListItem.css';
 
 const CommentsListItem = ({id, userData, text}) => {
-  let classNames = `container comments-item ${userData}`;
+  let classNames = `${ userData } comments-item__avatar--img`;
   
   return (
-    <div className={classNames}>
+    <div className="container comments-item">
       <div className="row comment-item-wrapper">
         <div className="col-2 comments-item__avatar">
           {/* eslint-disable */}
-          <a className="comments-item__avatar--img" href="some.html"></a>
+          <a className={ classNames } href="some.html"></a>
           {/* eslint-enable */}
         </div>
         <div className="col-10 comment-item__text">
-          <span className="comment-item__text-info">{text}</span>
+          <span className="comment-item__text-info">{ text }</span>
         </div>
       </div>
     </div>
