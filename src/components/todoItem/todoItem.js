@@ -5,8 +5,7 @@ import './todoItem.css';
 export default class TodoItem extends Component {
 
   render() {
-    const { label, id, selectedItem } = this.props;
-    console.log('id:', id);
+    const { label, id, selectedItem, onDeleted } = this.props;
 
     let classNames = 'todo-list__item';
 
@@ -20,7 +19,9 @@ export default class TodoItem extends Component {
           onClick={ () => this.props.onActiveSelected(id) }>
           {label}
         </span>
-        <button className="btn btn-outline-danger">Delete</button>
+        <button 
+          className="btn btn-outline-danger"
+          onClick={onDeleted}>Delete</button>
       </li>
     )
   }

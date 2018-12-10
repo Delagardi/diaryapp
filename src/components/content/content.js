@@ -4,12 +4,14 @@ import Comments from '../comments';
 
 import './content.css';
 
-const Content = ({ todoData }) => {
+const Content = ({ todoData, onDeleted }) => {
   
   return (
     <div className="content">
       <div className="row">
-        <Todos todoData={todoData}/>
+        <Todos 
+          todoData={todoData}
+          onDeleted={ (id) => onDeleted(id) }/>
         <Comments />
       </div>
     </div>

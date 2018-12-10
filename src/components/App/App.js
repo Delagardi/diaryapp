@@ -17,7 +17,9 @@ class App extends Component {
         <div className="container">
           <div className="row">
             <Sidebar/>
-            <Content todoData={this.todoData}/>
+            <Content 
+              todoData={this.todoData}
+              onDeleted={ (id) => console.log('DeletedID:', id)}/>
           </div>
         </div>
       </div>

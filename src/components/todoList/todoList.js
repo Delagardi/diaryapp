@@ -20,17 +20,20 @@ class TodoList extends Component {
 
   render() {
     const { selectedItem } = this.state;
-    const { todoData } = this.props;
+    const { todoData, onDeleted } = this.props;
 
     const elements = todoData.map( (item) => {
+      const { id, label, active } = item;
+
       return (
         <TodoItem 
-          key={item.id} 
-          label={item.label} 
-          active={item.active} 
-          id={item.id}
+          key={id} 
+          label={label} 
+          active={active} 
+          id={id}
           onActiveSelected={this.onItemSelected}
-          selectedItem={selectedItem}/>
+          selectedItem={selectedItem}
+          onDeleted={ () => onDeleted(id) }/>
       );
     });
 
