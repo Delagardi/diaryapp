@@ -13,6 +13,7 @@
 
 .comments-item__avatar, .comments-add__avatar {
   padding: 0;
+  margin-bottom: 18px;
 }
 
 .comments-item__avatar--img, .comments-add__avatar--img {
@@ -33,4 +34,8 @@
 
 .user2.comments-item__avatar--img {
   background-color: #47568C;
+}
+
+.userMain.comments-item__avatar--img {
+  background-color: #3a1dd9;
 }

@@ -4,7 +4,7 @@ import CommentAdd from '../commentAdd';
 
 import './comments.css';
 
-const Comments = ({ commentsData, selectedItem }) => {
+const Comments = ({ commentsData, selectedItem, onAddComment }) => {
   return (
     <div className="comments col-6">
       <div className="comments-card">
@@ -13,7 +13,8 @@ const Comments = ({ commentsData, selectedItem }) => {
           selectedItem={ selectedItem } 
           commentsData={ commentsData }
         />
-        <CommentAdd/>
+        <CommentAdd
+          onAddComment={ (text) => onAddComment(text) }/>
       </div>
     </div>
   );

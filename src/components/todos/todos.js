@@ -4,14 +4,14 @@ import TodoList from '../todoList';
 
 import './todos.css';
 
-const Todos = ({ todoData, onDeleted, onAdd, selectedItem, onActiveSelected }) => {
+const Todos = ({ todoData, onDeleted, onAddTodo, selectedItem, onActiveSelected }) => {
   return (
     <div className="todos col-6">
       <div className="todos-card">
         <h2 className="todos-header">Items</h2>
         <div>
           <TodoAdd 
-            onAdd={ (text) => onAdd(text) }/>
+            onAddTodo={ (text) => onAddTodo(text) }/>
           <TodoList 
             todoData={ todoData }
             onDeleted={ (id) => onDeleted(id) }

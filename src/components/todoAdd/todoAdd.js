@@ -19,13 +19,14 @@ class TodoAdd extends Component {
 
   onSubmitTodo = (event) => {
     event.preventDefault();
-    this.props.onAdd(this.state.label)
+    this.props.onAddTodo(this.state.label);
     this.setState({
       label: ''
     });
   }
 
   render() {
+    const { label } = this.state;
 
     return(
       <form 
@@ -36,7 +37,7 @@ class TodoAdd extends Component {
           type="text" 
           placeholder="Type name here..."
           onChange={ this.onLabelChange }
-          value={ this.state.label }/>
+          value={ label }/>
         <button 
           className="btn btn-success">
           Add new

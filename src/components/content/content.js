@@ -5,23 +5,14 @@ import Comments from '../comments';
 import './content.css';
 
 class Content extends Component {
-  constructor() {
-    super();
-
-    this.state = {
-      selectedItem: null
-    }
-  }
-
-  onItemSelected = (id) => {
-    this.setState({
-      selectedItem: id
-    })
-  }
-
   render() {
-    const { todoData, onDeleted, onAdd, commentsData } = this.props;
-    const { selectedItem } = this.state;
+    const { todoData, 
+            onDeleted, 
+            onAddTodo, 
+            commentsData,
+            onAddComment,
+            onActiveSelected,
+            selectedItem } = this.props;
   
     return (
       <div className="content">
@@ -29,13 +20,14 @@ class Content extends Component {
           <Todos 
             todoData={ todoData }
             onDeleted={ (id) => onDeleted(id) }
-            onAdd={ (text) => onAdd(text) }
-            selectedItem={selectedItem}
-            onActiveSelected={ (id) => this.onItemSelected(id)}
+            onAddTodo={ (text) => onAddTodo(text) }
+            selectedItem={ selectedItem }
+            onActiveSelected={ (id) => onActiveSelected(id)}
           />
           <Comments 
             commentsData={ commentsData }
-            selectedItem= { selectedItem }
+            selectedItem={ selectedItem }
+            onAddComment={ (text) => onAddComment(text) }
           />
         </div>
       </div>

@@ -9,6 +9,7 @@ class App extends Component {
     super();
 
     this.state = {
+      selectedItem: null,
       todoData: [
         {id: 1, label: 'First item with custom name'},
         {id: 2, label: 'Second item is active'},
@@ -22,6 +23,13 @@ class App extends Component {
       ]
     }
     this.idTodoFrom = 555;
+    this.idCommentFrom = 1555;
+  }
+
+  onItemSelected = (id) => {
+    this.setState({
+      selectedItem: id
+    })
   }
 
   deleteTodo = (id) => {
@@ -43,7 +51,6 @@ class App extends Component {
       id: this.idTodoFrom++,
       label: text
     }
-    console.log('Added this:', text);
 
     this.setState( ({ todoData }) => {
       const newArray = [...todoData, newTodo];
@@ -53,18 +60,41 @@ class App extends Component {
       }
     });
   }
+
+  addComment = (text) => {
+    const newComment = {
+      id: this.idCommentFrom++,
+      idTodo: this.state.selectedItem,
+      userData: 'userMain',
+      text
+    }
+
+    this.setState(({ commentsData }) => {
+      
+      const newArray = [...commentsData, newComment];
+
+      return {
+        commentsData: newArray
+      }
+    });
+  }
   
   render() {
+    const { selectedItem } = this.state;
+
     return (
       <div className="container-fluid bg-main">
         <div className="container">
           <div className="row">
             <Sidebar/>
             <Content 
+              selectedItem={ selectedItem }
               todoData={ this.state.todoData }
               onDeleted={ this.deleteTodo }
-              onAdd={ this.addTodo }
+              onAddTodo={ this.addTodo }
               commentsData={ this.state.commentsData }
+              onAddComment={ this.addComment }
+              onActiveSelected={ this.onItemSelected }
             />
           </div>
         </div>
