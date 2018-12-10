@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import TodoItem from '../todoItem';
+import TodoListItem from '../todoListItem';
 
 import './todoList.css';
 
@@ -26,7 +26,7 @@ class TodoList extends Component {
       const { id, label, active } = item;
 
       return (
-        <TodoItem 
+        <TodoListItem 
           key={id} 
           label={label} 
           active={active} 
