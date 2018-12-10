@@ -39,7 +39,7 @@ class TodoList extends Component {
 
     return(
       <ul className="todo-list">
-        {elements}
+        { elements }
       </ul>
     )
   }

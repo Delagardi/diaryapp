@@ -15,7 +15,10 @@ class App extends Component {
         {id: 3, label: 'Third item example'}
       ]
     }
+    this.idTodoFrom = 555;
   }
+
+  
 
   deleteTodo = (id) => {
     this.setState( ({todoData}) => {
@@ -29,7 +32,22 @@ class App extends Component {
         todoData: newArray
       }
     })
+  }
 
+  addTodo = (text) => {
+    const newTodo = {
+      id: this.idTodoFrom++,
+      label: text
+    }
+    console.log('Added this:', text);
+
+    this.setState( ({ todoData }) => {
+      const newArray = [...todoData, newTodo];
+
+      return {
+        todoData: newArray
+      }
+    });
   }
   
   render() {
@@ -40,7 +58,8 @@ class App extends Component {
             <Sidebar/>
             <Content 
               todoData={ this.state.todoData }
-              onDeleted={ this.deleteTodo }/>
+              onDeleted={ this.deleteTodo }
+              onAdd={ this.addTodo }/>
           </div>
         </div>
       </div>

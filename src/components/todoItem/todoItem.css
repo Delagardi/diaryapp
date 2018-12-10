@@ -43,6 +43,7 @@ input[type=text]:focus {
   vertical-align: middle;
   font-family: 'Open Sans Semibold', sans-serif;
   cursor: pointer;
+  overflow-wrap: break-word;
 }
 
 .todo-list__item .btn {

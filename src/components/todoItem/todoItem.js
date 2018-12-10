@@ -17,11 +17,11 @@ export default class TodoItem extends Component {
       <li className={ classNames}>
         <span
           onClick={ () => this.props.onActiveSelected(id) }>
-          {label}
+          { label }
         </span>
         <button 
           className="btn btn-outline-danger"
-          onClick={onDeleted}>Delete</button>
+          onClick={ onDeleted }>Delete</button>
       </li>
     )
   }
