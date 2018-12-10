@@ -1,5 +1,6 @@
 .bg-main {
   background: #2B2F3E;
+  min-height: 750px;
 }
 
 .btn-success {

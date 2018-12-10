@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Sidebar from '../sidebar';
 import Content from '../content';
+import ls from 'local-storage';
 
 import './app.css';
 
@@ -23,6 +24,16 @@ class App extends Component {
     }
     this.idTodoFrom = 555;
     this.idCommentFrom = 1555;
+  }
+
+  componentDidMount() {
+    this.setState(({ selectedItem, todoData, commentsData }) => {
+      return({
+        selectedItem: ls.get('selectedItem') || null,
+        todoData: ls.get('todoData') || todoData,
+        commentsData: ls.get('commentsData') || commentsData
+      })
+    });
   }
 
   // componentWillMount() {
@@ -55,12 +66,14 @@ class App extends Component {
     this.setState({
       selectedItem: id
     })
+    ls.set('selectedItem', id);
   }
 
   deleteComments = (idTodo) => {
     this.setState( ({ commentsData }) => {
       const newArray = commentsData.filter( (element) => element.idTodo !== idTodo)
       
+      ls.set('commentsData', newArray);
       return {
         commentsData: newArray
       }
@@ -77,6 +90,7 @@ class App extends Component {
       
       this.deleteComments(id);
       
+      ls.set('todoData', newArray);
       return {
         todoData: newArray
       }
@@ -92,6 +106,7 @@ class App extends Component {
     this.setState( ({ todoData }) => {
       const newArray = [...todoData, newTodo];
 
+      ls.set('todoData', newArray);
       return {
         todoData: newArray
       }
@@ -110,6 +125,7 @@ class App extends Component {
       
       const newArray = [...commentsData, newComment];
 
+      ls.set('commentsData', newArray);
       return {
         commentsData: newArray
       }
@@ -118,8 +134,6 @@ class App extends Component {
   
   render() {
     const { selectedItem, todoData, commentsData } = this.state;
-    console.log('todoData:');
-    console.log(todoData);
 
     return (
       <div className="container-fluid bg-main">
