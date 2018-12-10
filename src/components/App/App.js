@@ -25,25 +25,31 @@ class App extends Component {
     this.idCommentFrom = 1555;
   }
 
-  componentWillMount() {
-    localStorage.getItem('selectedItem') && this.setState({
-      selectedItem: JSON.parse(localStorage.getItem('selectedItem'))
-    })
+  // componentWillMount() {
+  //   localStorage.getItem('selectedItem') && this.setState( ({ selectedItem }) => {
+  //     return ({
+  //       selectedItem: JSON.parse(localStorage.getItem('selectedItem'))
+  //     })
+  //   })
 
-    localStorage.getItem('commentsData') && this.setState({
-      commentsData: JSON.parse(localStorage.getItem('commentsData'))
-    });
+  //   localStorage.getItem('todoData') && this.setState( ({ todoData }) => {
+  //     return ({
+  //       todoData: JSON.parse(localStorage.getItem('todoData'))
+  //     })
+  //   })
 
-    localStorage.getItem('todoData') && this.setState({
-      todoData: JSON.parse(localStorage.getItem('todoData'))
-    });
-  }
+  //   localStorage.getItem('commentsData') && this.setState( ({ commentsData }) => {
+  //     return ({
+  //       commentsData: JSON.parse(localStorage.getItem('commentsData'))
+  //     })
+  //   })
+  // }
 
-  componentWillUpdate(nextProps, nextState) {
-    localStorage.setItem('selectedItem', null);
-    localStorage.setItem('todoData', JSON.stringify(nextState.todoData));
-    localStorage.setItem('commentsData', JSON.stringify(nextState.commentsData));
-  }
+  // componentWillUpdate(nextProps, nextState) {
+  //   localStorage.setItem('selectedItem', JSON.stringify(nextState.selectedItem));
+  //   localStorage.setItem('todoData', JSON.stringify(nextState.todoData));
+  //   localStorage.setItem('commentsData', JSON.stringify(nextState.commentsData));
+  // }
 
   onItemSelected = (id) => {
     this.setState({
@@ -51,14 +57,26 @@ class App extends Component {
     })
   }
 
+  deleteComments = (idTodo) => {
+    this.setState( ({ commentsData }) => {
+      const newArray = commentsData.filter( (element) => element.idTodo !== idTodo)
+      
+      return {
+        commentsData: newArray
+      }
+    });
+  }
+
   deleteTodo = (id) => {
-    this.setState( ({todoData}) => {
+    this.setState( ({ todoData }) => {
       const index = todoData.findIndex( (element) => element.id === id );
 
       const before = todoData.slice(0, index);
       const after = todoData.slice(index+1);
       const newArray = [...before, ...after];
-
+      
+      this.deleteComments(id);
+      
       return {
         todoData: newArray
       }
@@ -99,7 +117,9 @@ class App extends Component {
   }
   
   render() {
-    const { selectedItem } = this.state;
+    const { selectedItem, todoData, commentsData } = this.state;
+    console.log('todoData:');
+    console.log(todoData);
 
     return (
       <div className="container-fluid bg-main">
@@ -108,10 +128,10 @@ class App extends Component {
             <Sidebar/>
             <Content 
               selectedItem={ selectedItem }
-              todoData={ this.state.todoData }
+              todoData={ todoData }
               onDeleted={ this.deleteTodo }
               onAddTodo={ this.addTodo }
-              commentsData={ this.state.commentsData }
+              commentsData={ commentsData }
               onAddComment={ this.addComment }
               onActiveSelected={ this.onItemSelected }
             />
