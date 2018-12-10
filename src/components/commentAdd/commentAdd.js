@@ -8,9 +8,7 @@ const CommentAdd = () => {
       <form className="container form-group">
         <div className="row comment-item-wrapper">
           <div className="col-2 comments-add__avatar">
-            {/* eslint-disable */}
-            <a className="comments-add__avatar--img" href="#123"></a>
-            {/* eslint-enable */}
+            <a className="comments-add__avatar--img" href="#123"><span></span></a>
           </div>
           <div className="col-10 comments-add__text">
             <textarea className="form-control" rows="4"></textarea>

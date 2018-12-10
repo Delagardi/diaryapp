@@ -9,11 +9,6 @@ class CommentsList extends Component {
 
     const elements = commentsData.map( (item) => {
       const { id, idTodo, userData, text } = item;
-      
-      console.log('selectedItem:');
-      console.log(selectedItem);
-      console.log('idTodo:');
-      console.log(idTodo);
   
       if ( selectedItem === idTodo ) {
         return (

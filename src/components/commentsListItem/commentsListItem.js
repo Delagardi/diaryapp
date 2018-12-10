@@ -9,9 +9,7 @@ const CommentsListItem = ({id, userData, text}) => {
     <div className="container comments-item">
       <div className="row comment-item-wrapper">
         <div className="col-2 comments-item__avatar">
-          {/* eslint-disable */}
-          <a className={ classNames } href="some.html"></a>
-          {/* eslint-enable */}
+          <a className={ classNames } href="some.html"><span></span></a>
         </div>
         <div className="col-10 comment-item__text">
           <span className="comment-item__text-info">{ text }</span>

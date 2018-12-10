@@ -38,8 +38,8 @@ class TodoAdd extends Component {
           onChange={ this.onLabelChange }
           value={ this.state.label }/>
         <button 
-          className="btn btn-success"
-          >Add new
+          className="btn btn-success">
+          Add new
         </button>
       </form>
     )

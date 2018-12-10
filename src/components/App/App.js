@@ -24,8 +24,6 @@ class App extends Component {
     this.idTodoFrom = 555;
   }
 
-  
-
   deleteTodo = (id) => {
     this.setState( ({todoData}) => {
       const index = todoData.findIndex( (element) => element.id === id );
