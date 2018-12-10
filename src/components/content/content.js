@@ -4,7 +4,7 @@ import Comments from '../comments';
 
 import './content.css';
 
-const Content = ({ todoData, onDeleted, onAdd }) => {
+const Content = ({ todoData, onDeleted, onAdd, commentsData }) => {
   
   return (
     <div className="content">
@@ -13,7 +13,9 @@ const Content = ({ todoData, onDeleted, onAdd }) => {
           todoData={ todoData }
           onDeleted={ (id) => onDeleted(id) }
           onAdd={ (text) => onAdd(text) }/>
-        <Comments />
+        <Comments 
+          commentsData={ commentsData }
+        />
       </div>
     </div>
   );

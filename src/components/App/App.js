@@ -13,6 +13,12 @@ class App extends Component {
         {id: 1, label: 'First item with custom name'},
         {id: 2, label: 'Second item is active'},
         {id: 3, label: 'Third item example'}
+      ],
+
+      commentsData: [
+        {id: 1, userData: 'user1', text: 'A variation of the ordinary lorem ipsum text has been used in typesetting since the 1960s or earlier, when it was popularized by advertisements for Letraset transfer sheets. It was introduced to the Information Age in the mid-1980s'},
+        {id: 2, userData: 'user2', text: 'A variation of the ordinary lorem ipsum text has been used in typesetting since the 1960s or earlier, when it was popularized by advertisements for Letraset transfer sheets. It was introduced to the Information Age in the mid-1980s'},
+        {id: 3, userData: 'user1', text: 'A variation of the ordinary lorem ipsum text has been used in typesetting since the 1960s or earlier, when it was popularized by advertisements for Letraset transfer sheets. It was introduced to the Information Age in the mid-1980s A variation of the ordinary lorem ipsum text has been used in typesetting since the 1960s or earlier, when it was popularized by advertisements for Letraset transfer sheets. It was introduced to the Information Age in the mid-1980s'},
       ]
     }
     this.idTodoFrom = 555;
@@ -59,7 +65,9 @@ class App extends Component {
             <Content 
               todoData={ this.state.todoData }
               onDeleted={ this.deleteTodo }
-              onAdd={ this.addTodo }/>
+              onAdd={ this.addTodo }
+              commentsData={ this.state.commentsData }
+            />
           </div>
         </div>
       </div>
