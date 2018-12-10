@@ -12,7 +12,8 @@ class Content extends Component {
             commentsData,
             onAddComment,
             onActiveSelected,
-            selectedItem } = this.props;
+            selectedItem,
+            commentsSumByTodo } = this.props;
   
     return (
       <div className="content">
@@ -22,12 +23,13 @@ class Content extends Component {
             onDeleted={ (id) => onDeleted(id) }
             onAddTodo={ (text) => onAddTodo(text) }
             selectedItem={ selectedItem }
-            onActiveSelected={ (id) => onActiveSelected(id)}
+            onActiveSelected={ (id) => onActiveSelected(id) }
           />
           <Comments 
             commentsData={ commentsData }
             selectedItem={ selectedItem }
             onAddComment={ (text) => onAddComment(text) }
+            commentsSumByTodo={ (idTodo) => commentsSumByTodo(idTodo) }
           />
         </div>
       </div>

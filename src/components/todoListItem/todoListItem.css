@@ -35,15 +35,24 @@ input[type=text]:focus {
   margin-top: 8px;
 }
 
-.todo-list__item span {
+.todo-list__item .todo-list__item-text {
   color: #2B2F3E;
   text-decoration: none;
   display: inline-block;
-  width: 320px;
+  max-width: 260px;
   vertical-align: middle;
   font-family: 'Open Sans Semibold', sans-serif;
   cursor: pointer;
   overflow-wrap: break-word;
+  position: relative;
+}
+
+.todo-list__item-wrapper > .badge {
+  margin-left: 30px;
+}
+
+.todo-list__item-wrapper {
+  width: 320px;
 }
 
 .todo-list__item .btn {

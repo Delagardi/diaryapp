@@ -4,7 +4,7 @@ import CommentAdd from '../commentAdd';
 
 import './comments.css';
 
-const Comments = ({ commentsData, selectedItem, onAddComment }) => {
+const Comments = ({ commentsData, selectedItem, onAddComment, commentsSumByTodo }) => {
   return (
     <div className="comments col-6">
       <div className="comments-card">
@@ -12,6 +12,7 @@ const Comments = ({ commentsData, selectedItem, onAddComment }) => {
         <CommentsList
           selectedItem={ selectedItem } 
           commentsData={ commentsData }
+          commentsSumByTodo={ (idTodo) => commentsSumByTodo(idTodo) }
         />
         <CommentAdd
           onAddComment={ (text) => onAddComment(text) }/>

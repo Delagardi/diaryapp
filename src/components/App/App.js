@@ -10,6 +10,8 @@ class App extends Component {
     super();
 
     this.state = {
+      idTodoFrom: 555,
+      idCommentFrom: 1555,
       selectedItem: null,
       todoData: [
         {id: 1, label: 'First item with custom name'},
@@ -22,45 +24,20 @@ class App extends Component {
         {id: 3, idTodo: 2, userData: 'user1', text: 'A variation of the ordinary lorem ipsum text has been used in typesetting since the 1960s or earlier, when it was popularized by advertisements for Letraset transfer sheets. It was introduced to the Information Age in the mid-1980s A variation of the ordinary lorem ipsum text has been used in typesetting since the 1960s or earlier, when it was popularized by advertisements for Letraset transfer sheets. It was introduced to the Information Age in the mid-1980s'},
       ]
     }
-    this.idTodoFrom = 555;
-    this.idCommentFrom = 1555;
+    
   }
 
   componentDidMount() {
-    this.setState(({ selectedItem, todoData, commentsData }) => {
+    this.setState(({ idTodoFrom, idCommentFrom, selectedItem, todoData, commentsData }) => {
       return({
+        idTodoFrom: ls.get('idTodoFrom') || idTodoFrom,
+        idCommentFrom: ls.get('idCommentFrom') || idCommentFrom,
         selectedItem: ls.get('selectedItem') || null,
         todoData: ls.get('todoData') || todoData,
         commentsData: ls.get('commentsData') || commentsData
       })
     });
   }
-
-  // componentWillMount() {
-  //   localStorage.getItem('selectedItem') && this.setState( ({ selectedItem }) => {
-  //     return ({
-  //       selectedItem: JSON.parse(localStorage.getItem('selectedItem'))
-  //     })
-  //   })
-
-  //   localStorage.getItem('todoData') && this.setState( ({ todoData }) => {
-  //     return ({
-  //       todoData: JSON.parse(localStorage.getItem('todoData'))
-  //     })
-  //   })
-
-  //   localStorage.getItem('commentsData') && this.setState( ({ commentsData }) => {
-  //     return ({
-  //       commentsData: JSON.parse(localStorage.getItem('commentsData'))
-  //     })
-  //   })
-  // }
-
-  // componentWillUpdate(nextProps, nextState) {
-  //   localStorage.setItem('selectedItem', JSON.stringify(nextState.selectedItem));
-  //   localStorage.setItem('todoData', JSON.stringify(nextState.todoData));
-  //   localStorage.setItem('commentsData', JSON.stringify(nextState.commentsData));
-  // }
 
   onItemSelected = (id) => {
     this.setState({
@@ -98,24 +75,30 @@ class App extends Component {
   }
 
   addTodo = (text) => {
+    const newTodoId = this.state.idTodoFrom + 1;
+    
     const newTodo = {
-      id: this.idTodoFrom++,
+      id: newTodoId,
       label: text
     }
 
     this.setState( ({ todoData }) => {
       const newArray = [...todoData, newTodo];
 
+      ls.set('idTodoFrom', newTodoId);
       ls.set('todoData', newArray);
       return {
+        idTodoFrom: newTodoId,
         todoData: newArray
       }
     });
   }
 
   addComment = (text) => {
+    const newCommentId = this.state.idCommentFrom + 1;
+
     const newComment = {
-      id: this.idCommentFrom++,
+      id: newCommentId,
       idTodo: this.state.selectedItem,
       userData: 'userMain',
       text
@@ -125,11 +108,19 @@ class App extends Component {
       
       const newArray = [...commentsData, newComment];
 
+      ls.set('idCommentFrom', newCommentId);
       ls.set('commentsData', newArray);
       return {
+        idCommentFrom: newCommentId,
         commentsData: newArray
       }
     });
+  }
+
+  commentsSumByTodo(idTodo) {
+    const result = this.state.commentsData.filter( (item) => item.idTodo === idTodo ).length
+
+    console.log(result);
   }
   
   render() {
@@ -148,6 +139,7 @@ class App extends Component {
               commentsData={ commentsData }
               onAddComment={ this.addComment }
               onActiveSelected={ this.onItemSelected }
+              commentsSumByTodo={ this.commentsSumByTodo }
             />
           </div>
         </div>
