@@ -5,7 +5,7 @@ import './commentsList.css'
 
 class CommentsList extends Component {
   render() {
-    const { commentsData, selectedItem, commentsSumByTodo } = this.props;
+    const { commentsData, selectedItem } = this.props;
 
     const elements = commentsData.map( (item) => {
       const { id, idTodo, userData, text } = item;
@@ -17,7 +17,6 @@ class CommentsList extends Component {
             id={ id }
             userData={ userData }
             text={ text }
-            commentsSumByTodo={ () => commentsSumByTodo(idTodo) }
           />
         );
       } else {

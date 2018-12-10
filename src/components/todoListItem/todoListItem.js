@@ -5,7 +5,7 @@ import './todoListItem.css';
 export default class TodoListItem extends Component {
 
   render() {
-    const { label, id, selectedItem, onDeleted } = this.props;
+    const { label, id, selectedItem, onDeleted, commentsSumByTodo } = this.props;
 
     let classNames = "todo-list__item-wrapper d-flex flex-wrap justify-content-start align-items-center ";
 
@@ -22,7 +22,8 @@ export default class TodoListItem extends Component {
             { label }
           </span>
           <span className="badge badge-pill badge-info">
-            0</span>
+            {commentsSumByTodo}
+          </span>
         </div>
         <button 
           className="btn btn-outline-danger"

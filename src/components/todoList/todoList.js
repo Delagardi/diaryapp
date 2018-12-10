@@ -6,7 +6,7 @@ import './todoList.css';
 class TodoList extends Component {
 
   render() {
-    const { todoData, onDeleted, selectedItem, onActiveSelected } = this.props;
+    const { todoData, onDeleted, selectedItem, onActiveSelected, commentsSumByTodo } = this.props;
 
     const elements = todoData.map( (item) => {
       const { id, label } = item;
@@ -18,7 +18,9 @@ class TodoList extends Component {
           id={id}
           onActiveSelected={ (id) => onActiveSelected(id)}
           selectedItem={ selectedItem }
-          onDeleted={ () => onDeleted(id) }/>
+          onDeleted={ () => onDeleted(id) }
+          commentsSumByTodo={ commentsSumByTodo(id) }
+        />
       );
     });
 

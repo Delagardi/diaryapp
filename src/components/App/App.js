@@ -121,6 +121,7 @@ class App extends Component {
     const result = this.state.commentsData.filter( (item) => item.idTodo === idTodo ).length
 
     console.log(result);
+    return result;
   }
   
   render() {
@@ -139,7 +140,7 @@ class App extends Component {
               commentsData={ commentsData }
               onAddComment={ this.addComment }
               onActiveSelected={ this.onItemSelected }
-              commentsSumByTodo={ this.commentsSumByTodo }
+              commentsSumByTodo={ (idTodo) => this.commentsSumByTodo(idTodo) }
             />
           </div>
         </div>

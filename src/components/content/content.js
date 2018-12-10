@@ -24,12 +24,12 @@ class Content extends Component {
             onAddTodo={ (text) => onAddTodo(text) }
             selectedItem={ selectedItem }
             onActiveSelected={ (id) => onActiveSelected(id) }
+            commentsSumByTodo={ (idTodo) => commentsSumByTodo(idTodo) }
           />
           <Comments 
             commentsData={ commentsData }
             selectedItem={ selectedItem }
             onAddComment={ (text) => onAddComment(text) }
-            commentsSumByTodo={ (idTodo) => commentsSumByTodo(idTodo) }
           />
         </div>
       </div>
