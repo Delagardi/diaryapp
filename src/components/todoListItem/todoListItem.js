@@ -5,7 +5,7 @@ import './todoListItem.css';
 export default class TodoListItem extends Component {
 
   render() {
-    const { label, id, selectedItem, onDeleted, commentsSumByTodo } = this.props;
+    const { label, id, selectedItem=1, onDeleted, commentsSumByTodo } = this.props;
 
     let classNames = "todo-list__item-wrapper d-flex flex-wrap justify-content-start align-items-center ";
 

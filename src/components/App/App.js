@@ -67,7 +67,8 @@ class App extends Component {
       
       ls.set('todoData', newArray);
       return {
-        todoData: newArray
+        todoData: newArray,
+        selectedItem: null
       }
     })
     this.deleteComments(id);

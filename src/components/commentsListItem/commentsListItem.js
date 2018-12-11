@@ -2,7 +2,7 @@ import React from 'react';
 
 import './commentsListItem.css';
 
-const CommentsListItem = ({id, userData, text}) => {
+const CommentsListItem = ({userData, text}) => {
   let classNames = `${ userData } comments-item__avatar--img`;
   
   return (
