@@ -28,7 +28,7 @@ input[type=text]:focus {
   left: -32px;
   top: 0;
   height: 53px;
-  border-left: 5px solid red;
+  border-left: 5px solid #FF2F5A;
 }
 
 .todo-list__item > .btn-outline-danger {
@@ -49,6 +49,10 @@ input[type=text]:focus {
 
 .todo-list__item-wrapper > .badge {
   margin-left: 30px;
+}
+
+.badge-info {
+  background-color: #27CCC0;
 }
 
 .todo-list__item-wrapper {
