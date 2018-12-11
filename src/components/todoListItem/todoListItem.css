@@ -51,6 +51,17 @@ input[type=text]:focus {
   margin-left: 30px;
 }
 
+button.btn-outline-danger {
+  color: #FF3159;
+  border-color: #FF3159;
+}
+
+button.btn-outline-danger:hover {
+  background-color: #FF3159;
+  border-color: #FF3159;
+}
+
+
 .badge-info {
   background-color: #27CCC0;
 }
